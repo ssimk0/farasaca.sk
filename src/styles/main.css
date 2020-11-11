@@ -1,0 +1,77 @@
+@import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
+
+.main-content-wrapper {
+    min-height: 90vh;
+}
+
+.pagination .prev {
+    text-align: left;
+}
+
+.pagination .next {
+    text-align: right;
+}
+
+.toolbarClassName {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.editorClassName {
+    border: 1px solid #F1F1F1;
+    border-top: 0;
+}
+
+/*.main-menu nav {*/
+/*    background-color: rgba(27, 27, 27, 0.5)*/
+/*}*/
+
+/*.home {*/
+/*    margin-top: -6rem;*/
+/*}*/
+
+.project-overlay:hover .project-text {
+    display: block;
+}
+
+.project-overlay .project-text {
+    display: none;
+    background-color: rgba(27, 27, 27, 0.6)
+}
+
+.react-pdf__Page__canvas {
+    margin: 0 auto;
+}
+
+.carousel {
+    min-height: 75vh;
+}
+
+.oznamy {
+    background-image: url("/oznamy_placeholder.jpg");
+    height: 50vh;
+    position: relative;
+}
+
+.oznamy a {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+}
+
+.most {
+    background-image: url("/most_placeholder.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    position: relative;
+}
+
+.most a {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+}
+

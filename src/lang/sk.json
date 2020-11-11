@@ -1,0 +1,115 @@
+{
+    "pages": {
+        "login": {
+            "menuName": "Prihlásenie"
+        },
+        "home": {
+            "menuName": "Domov"
+        },
+        "articles": {
+            "menuName": "Aktuality",
+            "create": "Vytvoriť článok",
+            "edit": "Upraviť článok"
+        },
+        "gallery": {
+            "menuName": "Fotogaleria"
+        },
+        "page": {
+            "edit": "Upraviť stránku",
+            "create": "Vytvoriť stránku"
+        },
+        "forgotPassword": {
+            "menuName": "Zabudnuté heslo"
+        },
+        "resetPassword": {
+            "title": "Reset hesla"
+        },
+        "contact": {
+            "menuName": "Kontakt"
+        },
+        "notice": {
+            "menuName": "Oznamy",
+            "actual": "Aktuálne oznamy"
+        }
+    },
+    "articles": {
+        "created": "Vytvorené",
+        "top": "Najčitanejšie",
+        "link": {
+            "create": "Vytvoriť",
+            "edit": "Upraviť"
+        }
+    },
+    "page": {
+        "link": {
+            "create": "Vytrvoriť podstránku",
+            "edit": "Upraviť"
+        }
+    },
+    "gallery": {
+        "uploadImagePlaceholder": "Obrázok gallerie",
+        "link": {
+            "create": "Vytvoriť Album",
+            "upload": "Nahrať fotky"
+        }
+    },
+    "actions": {
+        "logout": "Odhlásiť"
+    },
+    "forgotPassword": {
+        "success": "Postup pre reset hesla najdeš vo svojom emaile, ak si zadal správny email"
+    },
+    "form": {
+        "login": {
+            "Email": "Email",
+            "Password": "Heslo",
+            "Submit": "Prihlásiť"
+        },
+        "article": {
+            "Title": "Titulok",
+            "Short": "Skratený tvar",
+            "Content": "Článok",
+            "Published": "Zverejnený",
+            "Submit": "Uložiť"
+        },
+        "pages": {
+            "Title": "Titulok",
+            "Body": "Obash",
+            "Submit": "Uložiť"
+        },
+        "resetPassword": {
+            "Password": "Heslo",
+            "PasswordConfirm": "Potvrdenie hesla",
+            "Submit": "Uložiť"
+        },
+        "forgotPassword": {
+            "Email": "Email",
+            "Submit": "Odoslať"
+        },
+        "gallery": {
+            "Upload": "Vyberte obrázky",
+            "UploadForm": "Vybrať",
+            "Submit": "Nahrať",
+            "Name": "Meno",
+            "Desc": "Popis",
+            "Create": "Vytvoriť",
+            "infoText": "Vyberte subory s priponou jpg, gif, png, jpeg a maximalnou veľkostou 5mb"
+        },
+        "validationMessages": {
+            "required": "Pole '{{field}}' je povinné",
+            "invalid_format": "Pole '{{field}}' nieje v spravnom formáte",
+            "confirm": "Hesla musia byť rovnaké",
+            "fileSize": "Veľkosť suboru je príliš veľká",
+            "fileExtension": "Typ súboru nieje podporovaný"
+        }
+    },
+    "pagination": {
+        "Prev": "Predchadzajúce",
+        "Next": "Ďalšie"
+    },
+    "errors": {
+        "login": "heslo alebo email je zle skuste to znova",
+        "unknown": "nastala chyba skuste to znova",
+        "notFound": "Stránka sa nenašla"
+    }
+}
