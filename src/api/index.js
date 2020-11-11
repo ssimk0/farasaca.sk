@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+export const BASE_API_URL = 'https://api-fara.sebastiansimko.sk';
+
 export default function setup(t) {
-  axios.defaults.baseURL = 'https://api-fara.sebastiansimko.sk';
+  axios.defaults.baseURL = BASE_API_URL;
   axios.interceptors.response.use(
     (response) => {
       return response;
