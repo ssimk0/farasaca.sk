@@ -25,7 +25,8 @@ import CategoryUploads from "./views/Gallery/CategoryUploads";
 import CreateSubPage from "./views/Page/CreateSubPage";
 import Contact from "./views/Contact";
 import Home from "./views/Home";
-import Notice from "./views/Notice";
+import Notice from "./views/Notice/Notice";
+import UploadNotice from "./views/Notice/Upload";
 import Announcement from "./components/Announcement/Announcement";
 
 function loadMenuItems(pageService, menuItems) {
@@ -82,8 +83,7 @@ function App({pageService, userService}) {
     })
   }
 
-  const announcement = null;
-  const topPadding = announcement ? 'pt-40' : 'pt-24';
+  const topPadding = state.announcement ? 'pt-40' : 'pt-24';
   return !loading ? (
     <Router>
       <div>
@@ -124,7 +124,7 @@ function App({pageService, userService}) {
               </ul>
             </div>
           </nav>
-          <Announcement announcement={announcement} />
+          <Announcement announcement={state.announcement}/>
         </div>
         <div className={`${topPadding} main-content-wrapper mx-auto`}>
           <Switch>
@@ -157,9 +157,13 @@ function App({pageService, userService}) {
               <Article articleService={ArticleService}/>
             </Route>
 
+            <Route path="/oznamy/upload">
+              <UploadNotice uploadService={GalleryService}/>
+            </Route>
             <Route path="/oznamy">
               <Notice/>
             </Route>
+
 
 
             <ProtectedRoute neededPerm="editor" path="/pages/:category/:slug/edit">

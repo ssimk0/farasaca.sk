@@ -9,8 +9,12 @@ function UploadCategoryItem({category}) {
                 <img className="py-3 px-3" src={category.thumbnail}
                      alt={i18n.t("gallery.uploadImagePlaceholder")}/>
             </Link>
-            {category.name}
+            <h4>
+              {category.name}
+            </h4>
+            <p>
             {category.description}
+            </p>
         </div>
     )
 }

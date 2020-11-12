@@ -3,6 +3,7 @@ import {SET_PAGE_TITLE, useAppContext} from '../context/app';
 import i18n from "../utils/i18n";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
+import CreateButton from "../components/Create/CreateButton";
 
 function Home() {
   const {dispatch} = useAppContext();
@@ -48,6 +49,7 @@ function Home() {
                   title="Online Prenos" allowFullScreen className="mx-auto" />
         </div>
       </div>
+      <CreateButton />
     </div>
   );
 }

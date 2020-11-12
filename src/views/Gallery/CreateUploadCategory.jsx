@@ -20,7 +20,11 @@ function CreateUploadCategory({galleryService}) {
     }, [dispatch])
 
     return (
+      <div className="container mx-auto py-4">
+        <span className="form-title">{i18n.t("gallery.link.create")}</span>
+
         <UploadCategoryForm onSubmit={handleCreate}/>
+      </div>
     )
 }
 

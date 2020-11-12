@@ -1,17 +1,18 @@
 import gallery, {GALLERY_TYPE} from "../api/gallery";
 
 const GalleryService = {
-    upload(images, category) {
-        return Promise.all(
-            images.map((image) => {
-                const formData = new FormData();
-                formData.append('file', image)
-                return gallery.upload(formData, category);
-            }));
+    async upload(images, category) {
+      for(const image of images) {
+        const formData = new FormData();
+        formData.append('file', image)
+        await gallery.upload(formData, category, GALLERY_TYPE);
+      }
     },
     getCategoryUploads(category) {
         return gallery.listUploads({
             type: GALLERY_TYPE,
+            p: 1,
+            s: 9999,
             category
         });
     },

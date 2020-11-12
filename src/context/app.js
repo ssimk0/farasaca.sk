@@ -7,6 +7,7 @@ export const SET_USER_INFO = 'SET_USER_INFO';
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_PAGE_TITLE = 'SET_PAGE_TITLE';
 export const SET_MENU_ITEMS = 'SET_MENU_ITEMS';
+export const SET_ANNOUNCEMENT = 'SET_ANNOUNCEMENT';
 
 let reducer = (state, action) => {
     switch (action.type) {
@@ -27,12 +28,14 @@ let reducer = (state, action) => {
             return {...state, title: action.value}
         case SET_MENU_ITEMS:
             return {...state, menuItems: action.value}
+        case SET_ANNOUNCEMENT:
+            return {...state, announcement: action.value}
         default:
             return state;
     }
 };
 
-const initialState = {user: null, token: localStorage.getItem("token") || null, title: "", menuItems: []}
+const initialState = {user: null, announcement: null, token: localStorage.getItem("token") || null, title: "", menuItems: []}
 
 const AppContext = React.createContext(initialState);
 

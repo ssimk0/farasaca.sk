@@ -123,3 +123,7 @@ h2 {
 h2 {
     @apply text-6xl font-bold
 }
+
+.form-title {
+    @apply border-b-4 py-2 border-blue-500 text-2xl;
+}

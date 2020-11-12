@@ -6,7 +6,7 @@ function UploadCategoryForm({onSubmit}) {
     const {handleSubmit, register, errors} = useForm();
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="py-4 container mx-auto">
+        <form onSubmit={handleSubmit(onSubmit)} className="pt-4">
             <div className="form-group">
                 <label>
                     {i18n.t("form.gallery.Name")}

@@ -12,7 +12,8 @@
             "edit": "Upraviť článok"
         },
         "gallery": {
-            "menuName": "Fotogaleria"
+            "menuName": "Fotogaleria",
+            "upload": "Nahrať Foto"
         },
         "page": {
             "edit": "Upraviť stránku",
@@ -53,6 +54,21 @@
             "upload": "Nahrať fotky"
         }
     },
+    "announcement": {
+        "link": {
+            "create": "Vytvoriť upozornenie"
+        }
+    },
+    "notice": {
+        "link": {
+            "upload": "Nahrať Oznamy"
+        }
+    },
+    "most": {
+        "link": {
+            "upload": "Nahrať Most"
+        }
+    },
     "actions": {
         "logout": "Odhlásiť"
     },
@@ -85,6 +101,10 @@
         "forgotPassword": {
             "Email": "Email",
             "Submit": "Odoslať"
+        },
+        "notice": {
+            "File": "Subor",
+            "Submit": "Nahrať"
         },
         "gallery": {
             "Upload": "Vyberte obrázky",

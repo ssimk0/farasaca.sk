@@ -30,8 +30,13 @@ function EditPage({pageService}) {
         })
     }, [pageService, dispatch, slug, category])
 
-    return loading ? <Loader/> : (
-        <PageForm page={page} onSubmit={handleEdit}/>
+    return (
+      <div className="container mx-auto py-4">
+        <span className="form-title">{i18n.t("page.link.edit")}</span>
+        {loading ? <Loader/> : (
+          <PageForm page={page} onSubmit={handleEdit}/>
+        )}
+      </div>
     )
 }
 

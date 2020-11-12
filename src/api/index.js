@@ -18,7 +18,7 @@ export default function setup(t) {
 
       return Promise.reject({
         error: 'error',
-        status: error.response.status,
+        status: error.response ? error.response.status : 500,
         message: error && error.response ? error.response.data.message : 'Error',
       });
     },

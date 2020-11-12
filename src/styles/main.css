@@ -75,3 +75,20 @@
     left: 0;
 }
 
+.plus-icon {
+    right: 15px;
+    bottom: 15px;
+}
+
+.plus-icon:active {
+    outline: none;
+}
+
+.plus-icon:focus {
+    outline: none;
+}
+
+.plus-icon .dropdown {
+    right: 4.5rem;
+    bottom: 2rem;
+}

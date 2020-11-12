@@ -34,7 +34,10 @@ function CreateSubPage({pageService}) {
   }, [pageService, dispatch, id, category])
 
   return (
-    <PageForm onSubmit={handleCreate}/>
+    <div className="container mx-auto py-4">
+      <span className="form-title">{i18n.t("page.link.create")}</span>
+      <PageForm onSubmit={handleCreate}/>
+    </div>
   )
 }
 

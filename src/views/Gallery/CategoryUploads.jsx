@@ -19,10 +19,6 @@ function CategoryUploads({galleryService}) {
         })
     }, [galleryService, dispatch, category])
 
-    const handleClick = (e) => {
-        e.preventDefault()
-        gallery.current.toggleFullScreen()
-    }
 
     return uploads === null ? <Loader/> : (
         <div className="py-4 container mx-auto">
@@ -37,7 +33,6 @@ function CategoryUploads({galleryService}) {
                 items={uploads.upload.map((upload) => ({...upload, original: upload.file}))}
                 infinite={false}
                 lazyLoad={true}
-                onClick={(e) => handleClick(e)}
                 showFullscreenButton={false}
                 showPlayButton={false}
                 ref={gallery}
