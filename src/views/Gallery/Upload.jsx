@@ -3,10 +3,10 @@ import {SET_PAGE_TITLE, useAppContext} from "../../context/app";
 import {useHistory, useParams} from "react-router-dom";
 import i18n from "utils/i18n";
 import UploadForm from "components/Gallery/UploadForm";
-import {GALLERY_TYPE} from "../../api/gallery";
+import {GALLERY_TYPE} from "../../api/upload";
 
 
-function Upload({galleryService}) {
+function Upload({uploadService}) {
     const {dispatch} = useAppContext();
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -14,7 +14,7 @@ function Upload({galleryService}) {
 
     const handleCreate = images => {
         setLoading(true)
-        galleryService.upload(images, category).then(() => {
+        uploadService.upload(images, category).then(() => {
             setLoading(false)
             history.push(`/gallery`)
         }, () => {

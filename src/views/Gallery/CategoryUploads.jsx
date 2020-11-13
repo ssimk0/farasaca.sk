@@ -12,7 +12,7 @@ function CategoryUploads({galleryService}) {
     const gallery = React.createRef();
 
     useEffect(() => {
-        dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.articles.menuName")});
+        dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.gallery.menuName")});
 
         galleryService.getCategoryUploads(category).then((data) => {
             setUploads(data);

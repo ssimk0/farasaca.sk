@@ -12,7 +12,7 @@ function CategoryList({galleryService}) {
     let categoryList = [];
 
     useEffect(() => {
-        dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.articles.menuName")});
+        dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.gallery.menuName")});
 
         galleryService.getUploadsCategories().then((data) => {
             setCategories(data);

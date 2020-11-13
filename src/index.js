@@ -5,12 +5,16 @@ import {Integrations} from '@sentry/tracing';
 import {AppProvider} from './context/app';
 import PageService from './service/page';
 import setupApi from './api';
+import 'dayjs/locale/sk';
 
 import App from './App';
 import './styles/tailwind.output.css';
 import 'styles/main.css';
 import UserService from "./service/user";
+import dayjs from "dayjs";
 
+
+dayjs.locale('sk')
 
 if (process.env === "production") {
     Sentry.init({

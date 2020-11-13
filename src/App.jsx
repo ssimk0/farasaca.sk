@@ -28,6 +28,13 @@ import Home from "./views/Home";
 import Notice from "./views/Notice/Notice";
 import UploadNotice from "./views/Notice/Upload";
 import Announcement from "./components/Announcement/Announcement";
+import CreateAnnouncement from "./views/Announcement/CreateAnnouncement";
+import AnnouncementService from "./service/announcement";
+import UploadService from "./service/upload";
+import Most from "./views/Most/Most";
+import ArchiveMost from "./views/Most/Archiv";
+import DetailMost from "./views/Most/Detail";
+import UploadMost from "./views/Most/Upload";
 
 function loadMenuItems(pageService, menuItems) {
   if (menuItems.length === 0) {
@@ -112,6 +119,10 @@ function App({pageService, userService}) {
                   <NavLink to="/oznamy"
                            className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.menuName")}</NavLink>
                 </li>
+                <li className="lg:mr-4 block lg:inline-block">
+                  <NavLink to="/most"
+                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.most.menuName")}</NavLink>
+                </li>
                 {menuList}
                 <li className="lg:mr-4 block lg:inline-block">
                   <NavLink to="/gallery"
@@ -158,12 +169,30 @@ function App({pageService, userService}) {
             </Route>
 
             <Route path="/oznamy/upload">
-              <UploadNotice uploadService={GalleryService}/>
+              <UploadNotice uploadService={UploadService}/>
             </Route>
+
             <Route path="/oznamy">
               <Notice/>
             </Route>
 
+
+            <Route path="/most/archive">
+              <ArchiveMost uploadService={UploadService}/>
+            </Route>
+            <ProtectedRoute path="/most/upload" neededPerm="editor">
+              <UploadMost uploadService={UploadService}/>
+            </ProtectedRoute>
+            <Route path="/most/:id">
+              <DetailMost uploadService={UploadService}/>
+            </Route>
+            <Route path="/most">
+              <Most/>
+            </Route>
+
+            <ProtectedRoute path="/announcement/create" neededPerm="editor">
+              <CreateAnnouncement announcementService={AnnouncementService}/>
+            </ProtectedRoute>
 
 
             <ProtectedRoute neededPerm="editor" path="/pages/:category/:slug/edit">
@@ -181,7 +210,7 @@ function App({pageService, userService}) {
             </Route>
 
             <ProtectedRoute neededPerm="editor" path="/gallery/:category/upload">
-              <Upload galleryService={GalleryService}/>
+              <Upload uploadService={UploadService}/>
             </ProtectedRoute>
 
             <ProtectedRoute neededPerm="editor" path="/gallery/create">

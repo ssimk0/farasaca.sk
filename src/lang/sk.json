@@ -13,7 +13,8 @@
         },
         "gallery": {
             "menuName": "Fotogaleria",
-            "upload": "Nahrať Foto"
+            "upload": "Nahrať Foto",
+            "create": "Vytvoriť Album"
         },
         "page": {
             "edit": "Upraviť stránku",
@@ -30,7 +31,14 @@
         },
         "notice": {
             "menuName": "Oznamy",
-            "actual": "Aktuálne oznamy"
+            "actual": "Aktuálne oznamy",
+            "upload": "Nahrať"
+        },
+        "most": {
+            "menuName": "Most",
+            "upload": "Nahrať",
+            "archive": "Archiv",
+            "detail": "Archiv"
         }
     },
     "articles": {
@@ -39,6 +47,15 @@
         "link": {
             "create": "Vytvoriť",
             "edit": "Upraviť"
+        }
+    },
+    "most": {
+        "actual": "Aktuálne čislo mostu",
+        "archive": "Archív mostu",
+        "link": {
+            "archive": "Staršie čísla mostu",
+            "upload": "Nahrať Most",
+            "back": "< Naspäť do archívu"
         }
     },
     "page": {
@@ -64,11 +81,6 @@
             "upload": "Nahrať Oznamy"
         }
     },
-    "most": {
-        "link": {
-            "upload": "Nahrať Most"
-        }
-    },
     "actions": {
         "logout": "Odhlásiť"
     },
@@ -80,6 +92,11 @@
             "Email": "Email",
             "Password": "Heslo",
             "Submit": "Prihlásiť"
+        },
+        "announcement": {
+            "Message": "Sprava",
+            "ExpireAt": "Do kedy ju zobrazovať",
+            "Submit": "Uložiť"
         },
         "article": {
             "Title": "Titulok",
@@ -104,6 +121,7 @@
         },
         "notice": {
             "File": "Subor",
+            "Description": "Popis",
             "Submit": "Nahrať"
         },
         "gallery": {
