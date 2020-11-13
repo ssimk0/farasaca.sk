@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {SET_PAGE_TITLE, useAppContext} from "../../context/app";
 import i18n from "../../utils/i18n";
 import {BASE_API_URL} from "../../api";

@@ -32,7 +32,7 @@ function Home() {
           <img src="/photos/5-min.jpg" alt="img-5"/>
         </div>
       </Carousel>
-      <div className="grid grid-cols-2">
+      <div className="grid md:grid-cols-2 grid-cols-1">
         <div className="oznamy text-center">
           <a className="text-4xl font-bold" href="/oznamy">Aktualne oznamy</a>
         </div>
@@ -44,9 +44,11 @@ function Home() {
         <div className="container mx-auto">
           <h4>Online prenos</h4>
           <hr className="py-4"/>
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Tl8DmgdXx-U" frameBorder="0"
+          <div className="md:w-1/2 mx-auto">
+          <iframe width="100%" height="auto" src="https://www.youtube-nocookie.com/embed/Tl8DmgdXx-U" frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   title="Online Prenos" allowFullScreen className="mx-auto" />
+          </div>
         </div>
       </div>
       <CreateButton user={state.user}/>

@@ -127,3 +127,15 @@ h2 {
 .form-title {
     @apply border-b-4 py-2 border-blue-500 text-2xl;
 }
+
+.min-h-50 {
+    min-height: 50vh;
+}
+
+.min-h-75 {
+    min-height: 75vh;
+}
+
+.carousel {
+    min-height: 75vh;
+}
