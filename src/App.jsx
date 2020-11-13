@@ -35,6 +35,8 @@ import Most from "./views/Most/Most";
 import ArchiveMost from "./views/Most/Archiv";
 import DetailMost from "./views/Most/Detail";
 import UploadMost from "./views/Most/Upload";
+import ArchiveNotice from "./views/Notice/Archiv";
+import DetailNotice from "./views/Notice/Detail";
 
 function loadMenuItems(pageService, menuItems) {
   if (menuItems.length === 0) {
@@ -170,6 +172,12 @@ function App({pageService, userService}) {
 
             <Route path="/oznamy/upload">
               <UploadNotice uploadService={UploadService}/>
+            </Route>
+            <Route path="/oznamy/archive">
+              <ArchiveNotice uploadService={UploadService}/>
+            </Route>
+            <Route path="/oznamy/:id">
+              <DetailNotice uploadService={UploadService}/>
             </Route>
 
             <Route path="/oznamy">

@@ -13,8 +13,8 @@ function Upload({uploadService}) {
     dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.notice.upload")});
   });
 
-  function handleSubmit({file}) {
-    uploadService.upload([file], NOTICE_TYPE).then(() => {
+  function handleSubmit({file, description}) {
+    uploadService.uploadOne(file[0], NOTICE_TYPE, description).then(() => {
       history.push("/oznamy")
     })
   }
