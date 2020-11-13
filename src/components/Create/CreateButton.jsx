@@ -4,9 +4,8 @@ import {Link} from "react-router-dom";
 import {useAppContext} from "../../context/app";
 
 
-function CreateButton() {
+function CreateButton({user}) {
   const [open, setOpen] = useState(false);
-  const {state} = useAppContext();
 
   let dropDownClass = 'absolute dropdown mt-2 py-2 w-48 bg-white rounded-lg shadow-xl text-right'
 
@@ -14,7 +13,7 @@ function CreateButton() {
     dropDownClass += ' hidden';
   }
 
-  return (state.user.can_edit || state.user.is_admin) && (
+  return user && (user.can_edit || user.is_admin) ? (
     <button
       className="rounded-full h-16 w-16 flex items-center justify-center shadow-md fixed bg-white plus-icon cursor-pointer"
       onClick={() => setOpen(!open)}>
@@ -30,7 +29,7 @@ function CreateButton() {
               className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">{i18n.t("most.link.upload")}</Link>
       </div>
     </button>
-  )
+  ) : <div />
 }
 
 export default CreateButton

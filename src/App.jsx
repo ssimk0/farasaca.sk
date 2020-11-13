@@ -204,6 +204,7 @@ function App({pageService, userService}) {
               <NotFound/>
             </Route>
           </Switch>
+
         </div>
         <div className="text-center">
           <p className="text-gray-800 py-8">

@@ -27,8 +27,15 @@ const testService = {
 const defaultContext = {
     state: {
         menuItems: [],
+        user: {
+          can_edit: false,
+          is_admin: false
+        },
+        announcement: {
+          message: "test"
+        },
     },
-    dispatch: () => {
+    dispatch: (e) => {
         return {}
     }
 

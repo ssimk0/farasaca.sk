@@ -6,7 +6,7 @@ import {Carousel} from 'react-responsive-carousel';
 import CreateButton from "../components/Create/CreateButton";
 
 function Home() {
-  const {dispatch} = useAppContext();
+  const {dispatch, state} = useAppContext();
 
   useEffect(() => {
     dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.home.menuName")});
@@ -49,7 +49,7 @@ function Home() {
                   title="Online Prenos" allowFullScreen className="mx-auto" />
         </div>
       </div>
-      <CreateButton />
+      <CreateButton user={state.user}/>
     </div>
   );
 }
