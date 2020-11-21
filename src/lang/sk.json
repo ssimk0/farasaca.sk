@@ -29,6 +29,9 @@
         "contact": {
             "menuName": "Kontakt"
         },
+        "links": {
+            "menuName": "Linky"
+        },
         "notice": {
             "menuName": "Oznamy",
             "actual": "Aktuálne oznamy",

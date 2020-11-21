@@ -37,6 +37,7 @@ import DetailMost from "./views/Most/Detail";
 import UploadMost from "./views/Most/Upload";
 import ArchiveNotice from "./views/Notice/Archiv";
 import DetailNotice from "./views/Notice/Detail";
+import Links from "./views/Links";
 
 function loadMenuItems(pageService, menuItems) {
   if (menuItems.length === 0) {
@@ -126,6 +127,10 @@ function App({pageService, userService}) {
                            className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.most.menuName")}</NavLink>
                 </li>
                 {menuList}
+                <li className="lg:mr-4 block lg:inline-block">
+                  <NavLink to="/links"
+                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.links.menuName")}</NavLink>
+                </li>
                 <li className="lg:mr-4 block lg:inline-block">
                   <NavLink to="/gallery"
                            className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.gallery.menuName")}</NavLink>
@@ -235,6 +240,10 @@ function App({pageService, userService}) {
 
             <Route path="/contact">
               <Contact/>
+            </Route>
+
+            <Route path="/links">
+              <Links/>
             </Route>
 
             <Route path="*">
