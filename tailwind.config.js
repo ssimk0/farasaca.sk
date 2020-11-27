@@ -8,7 +8,7 @@ module.exports = {
       'src/**/*.tsx',
       'public/**/*.html',
     ],
-    enabled: true,
+    enabled: false,
   },
   darkMode: false, // or 'media' or 'class'
   theme: {

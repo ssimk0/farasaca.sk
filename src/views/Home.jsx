@@ -42,10 +42,19 @@ function Home() {
       </div>
       <div className="py-4">
         <div className="container mx-auto">
+          <h3>Liturgický Kalendár</h3>
+          <hr className="py-4"/>
+          <a href="https://lc.kbs.sk">
+            <img src="https://lc.kbs.sk/?img=1&colors=fff;3B82F6;#000;#000" alt="lit-calendar"/>
+          </a>
+        </div>
+      </div>
+      <div className="py-4">
+        <div className="container mx-auto">
           <h4>Online prenos</h4>
           <hr className="py-4"/>
           <div className="md:w-1/2 mx-auto">
-          <iframe width="100%" height="auto" src="https://www.youtube-nocookie.com/embed/Tl8DmgdXx-U" frameBorder="0"
+          <iframe width="100%" height="300" src="https://www.youtube-nocookie.com/embed/Tl8DmgdXx-U" frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   title="Online Prenos" allowFullScreen className="mx-auto" />
           </div>
