@@ -30,7 +30,7 @@ function CategoryList({galleryService}) {
                     <Link className="btn" to="/gallery/create">{i18n.t("gallery.link.create")}</Link>
                 </div>) : null
             }
-            <div className="grid grid-cols-3 ">
+            <div className="grid grid-cols-1 lg:grid-cols-3">
                 {categoryList}
             </div>
         </div>
