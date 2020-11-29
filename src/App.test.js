@@ -59,7 +59,7 @@ async function renderComponent(context = defaultContext, service = testService) 
 
     await act(async () => {
         wrapper = mount(
-            <App pageService={service} userService={userService}/>
+            <App pageService={service} userService={userService} articleService={{ getArticles: () => Promise.resolve({})}}/>
         );
     })
 

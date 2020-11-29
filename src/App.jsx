@@ -2,7 +2,6 @@ import React, {useEffect, useState, lazy, Suspense} from 'react';
 import {BrowserRouter as Router, Link, NavLink, Route, Switch} from "react-router-dom";
 import {SET_MENU_ITEMS, SET_USER_INFO, useAppContext} from './context/app';
 import Page from "./views/Page/Page";
-import ArticleService from "./service/article";
 import PageService from "./service/page";
 import Loader from "./components/Loader";
 import Login from "./views/User/Login";
@@ -48,7 +47,7 @@ function loadMenuItems(pageService, menuItems) {
   return Promise.resolve(menuItems)
 }
 
-function App({pageService, userService}) {
+function App({pageService, userService, articleService}) {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(true);
   const {dispatch, state} = useAppContext();
@@ -180,7 +179,7 @@ function App({pageService, userService}) {
           <Suspense fallback={<Loader/>}>
             <Switch>
               <Route exact path="/">
-                <Home articleService={ArticleService}/>
+                <Home articleService={articleService}/>
               </Route>
 
 
@@ -199,13 +198,13 @@ function App({pageService, userService}) {
 
 
               <ProtectedRoute neededPerm="editor" path="/articles/create">
-                <CreateArticle articleService={ArticleService}/>
+                <CreateArticle articleService={articleService}/>
               </ProtectedRoute>
               <ProtectedRoute neededPerm="editor" path="/articles/:slug/edit">
-                <EditArticle articleService={ArticleService}/>
+                <EditArticle articleService={articleService}/>
               </ProtectedRoute>
               <Route path="/articles/:slug">
-                <Article articleService={ArticleService}/>
+                <Article articleService={articleService}/>
               </Route>
 
               <Route path={`/oznamy/upload/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})`}>

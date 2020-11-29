@@ -12,6 +12,7 @@ import './styles/tailwind.output.css';
 import 'styles/main.css';
 import UserService from "./service/user";
 import dayjs from "dayjs";
+import ArticleService from "./service/article";
 
 
 dayjs.locale('sk')
@@ -30,7 +31,7 @@ setupApi()
 
 ReactDOM.render(
     <AppProvider>
-        <App pageService={PageService} userService={UserService}/>
+        <App pageService={PageService} userService={UserService} articleService={ArticleService}/>
     </AppProvider>,
     document.getElementById('root')
 );
