@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {NOTICE_TYPE} from "../../api/upload";
 import Pagination from "../../components/Pagination/Pagination";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import Error from "../../components/Error/Error";
 import i18n from "../../utils/i18n";
 import {SET_PAGE_TITLE, useAppContext} from "../../context/app";
@@ -12,6 +11,7 @@ function ArchiveNotice({uploadService}) {
   const query = new URLSearchParams(useLocation().search);
   const page = query.get("page");
   const {dispatch} = useAppContext();
+  const {type} = useParams();
 
 
   useEffect(() => {
@@ -19,14 +19,14 @@ function ArchiveNotice({uploadService}) {
 
     uploadService.getUploads({
       type: "menu",
-      category: NOTICE_TYPE,
+      category: type,
       page,
     }).then((u) => {
       setUploads(u)
     }, (err) => {
       setError(err)
     })
-  }, [dispatch, page, uploadService])
+  }, [dispatch, page, type, uploadService])
 
 
   return uploads && (
@@ -37,7 +37,7 @@ function ArchiveNotice({uploadService}) {
         <ul>
           {uploads.upload && uploads.upload.map((u) => (
             <li key={'most-' + u.id}>
-              <Link to={`/oznamy/${u.id}`}>{u.description}</Link>
+              <Link to={`/oznamy/${type}/${u.id}`}>{u.description}</Link>
             </li>
           ))}
         </ul>

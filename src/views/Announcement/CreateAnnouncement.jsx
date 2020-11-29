@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {useForm} from "react-hook-form";
 import i18n from "../../utils/i18n";
-import DatePicker from "react-datepicker";
 import {useHistory} from 'react-router-dom';
 
 import "react-datepicker/dist/react-datepicker.css";
 import Error from "../../components/Error/Error";
 import {SET_ANNOUNCEMENT, useAppContext} from "../../context/app";
+const DatePicker = React.lazy(() => import('react-datepicker'));
 
 function CreateAnnouncement({announcementService}) {
   const today = new Date();

@@ -11,7 +11,7 @@ function CreateArticle({articleService}) {
 
     const handleCreate = values => {
         articleService.create({...values}).then(() => {
-            history.push(`/articles`)
+            history.push(`/`)
         })
     };
 

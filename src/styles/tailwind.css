@@ -37,7 +37,7 @@
 }
 
 input:not([type='checkbox']) {
-    @apply bg-white box-border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal
+    @apply bg-white box-border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal border-2
 }
 
 input:not([type='checkbox']):focus {

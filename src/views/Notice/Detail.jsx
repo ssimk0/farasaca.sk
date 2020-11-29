@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
-import {NOTICE_TYPE} from "../../api/upload";
 import Error from "../../components/Error/Error";
 import {BASE_API_URL} from "../../api";
 import i18n from "../../utils/i18n";
@@ -13,30 +12,30 @@ function DetailNotice({uploadService}) {
   const [error, setError] = useState(null);
   const {id} = useParams();
   const {dispatch} = useAppContext();
-
+  const {type} = useParams();
 
   useEffect(() => {
     dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.notice.detail")});
 
     uploadService.getUpload({
       type: "menu",
-      category: NOTICE_TYPE,
+      category: type,
       id,
     }).then((u) => {
       setUpload(u)
     }, (err) => {
       setError(err)
     })
-  }, [dispatch, id, uploadService])
+  }, [dispatch, id, type, uploadService])
 
 
   return upload && (
     <div className="container py-4 mx-auto">
       <Error error={error} />
-      <Link to="/oznamy/archive" className="block">{i18n.t("notice.link.back")}</Link>
+      <Link to={`/oznamy/${type}/archive`} className="block">{i18n.t("notice.link.back")}</Link>
       <span className="form-title">{upload.description}</span>
       <div className="py-4">
-        <Detail file={`${BASE_API_URL}/api/v1/uploads/menu/${NOTICE_TYPE}/${upload.id}/download`}/>
+        <Detail file={`${BASE_API_URL}/api/v1/uploads/menu/${type}/${upload.id}/download`}/>
       </div>
 
     </div>

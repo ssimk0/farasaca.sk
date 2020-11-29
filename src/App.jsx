@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, NavLink, Route, Switch} from "react-router-dom";
+import React, {useEffect, useState, lazy, Suspense} from 'react';
+import {BrowserRouter as Router, Link, NavLink, Route, Switch} from "react-router-dom";
 import {SET_MENU_ITEMS, SET_USER_INFO, useAppContext} from './context/app';
 import Page from "./views/Page/Page";
 import ArticleService from "./service/article";
@@ -25,19 +25,21 @@ import CategoryUploads from "./views/Gallery/CategoryUploads";
 import CreateSubPage from "./views/Page/CreateSubPage";
 import Contact from "./views/Contact";
 import Home from "./views/Home";
-import Notice from "./views/Notice/Notice";
-import UploadNotice from "./views/Notice/Upload";
 import Announcement from "./components/Announcement/Announcement";
 import CreateAnnouncement from "./views/Announcement/CreateAnnouncement";
 import AnnouncementService from "./service/announcement";
 import UploadService from "./service/upload";
-import Most from "./views/Most/Most";
-import ArchiveMost from "./views/Most/Archiv";
-import DetailMost from "./views/Most/Detail";
-import UploadMost from "./views/Most/Upload";
-import ArchiveNotice from "./views/Notice/Archiv";
-import DetailNotice from "./views/Notice/Detail";
 import Links from "./views/Links";
+import {MASS_TYPE, NOTICE_TYPE, READINGS_TYPE} from "./api/upload";
+
+const Most = lazy(() => import('./views/Most/Most'));
+const ArchiveMost = lazy(() => import('./views/Most/Archiv'));
+const DetailMost = lazy(() => import('./views/Most/Detail'));
+const UploadMost = lazy(() => import('./views/Most/Upload'));
+const ArchiveNotice = lazy(() => import('./views/Notice/Archive'));
+const DetailNotice = lazy(() => import('./views/Notice/Detail'));
+const Notice = lazy(() => import('./views/Notice/Notice'));
+const UploadNotice = lazy(() => import('./views/Notice/Upload'));
 
 function loadMenuItems(pageService, menuItems) {
   if (menuItems.length === 0) {
@@ -50,6 +52,7 @@ function App({pageService, userService}) {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(true);
   const {dispatch, state} = useAppContext();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (state.user == null && state.token != null && state.menuItems.length) {
@@ -93,6 +96,12 @@ function App({pageService, userService}) {
     })
   }
 
+  let dropDownClass = 'absolute dropdown mt-2 py-2 w-48 bg-white rounded-lg shadow-xl text-left'
+
+  if (!open) {
+    dropDownClass += ' hidden';
+  }
+
   const topPadding = state.announcement ? 'pt-40' : 'pt-24';
   return !loading ? (
     <Router>
@@ -118,9 +127,32 @@ function App({pageService, userService}) {
                   <NavLink to="/" exact
                            className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.home.menuName")}</NavLink>
                 </li>
-                <li className="lg:mr-4 block lg:inline-block">
-                  <NavLink to="/oznamy"
+                <li className="lg:mr-4 block lg:inline-block hidden lg:inline-block">
+                  <NavLink to="/oznamy/" onClick={e => {
+                    e.preventDefault()
+                    setOpen(true)
+                  }} onBlur={() => setTimeout(() => setOpen(false), 200)}
                            className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.menuName")}</NavLink>
+                  <div className={dropDownClass}>
+                    <Link to="/oznamy/weekly"
+                          className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.menuName")}</Link>
+                    <Link to="/oznamy/omse"
+                          className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.massMenuName")}</Link>
+                    <Link to="/oznamy/citania"
+                          className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.readingsMenuName")}</Link>
+                  </div>
+                </li>
+                <li className="lg:mr-4 block lg:hidden">
+                  <NavLink to="/oznamy/weekly"
+                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.menuName")}</NavLink>
+                </li>
+                <li className="lg:mr-4 block lg:hidden">
+                  <NavLink to="/oznamy/omse"
+                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.massMenuName")}</NavLink>
+                </li>
+                <li className="lg:mr-4 block lg:hidden">
+                  <NavLink to="/oznamy/citania"
+                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.readingsMenuName")}</NavLink>
                 </li>
                 <li className="lg:mr-4 block lg:inline-block">
                   <NavLink to="/most"
@@ -145,112 +177,113 @@ function App({pageService, userService}) {
           <Announcement announcement={state.announcement}/>
         </div>
         <div className={`${topPadding} main-content-wrapper mx-auto`}>
-          <Switch>
-            <Route exact path="/">
-              <Home/>
-            </Route>
+          <Suspense fallback={<Loader/>}>
+            <Switch>
+              <Route exact path="/">
+                <Home articleService={ArticleService}/>
+              </Route>
 
 
-            <ProtectedRoute neededPerm="notLogged" path="/login">
-              <Login userService={UserService}/>
-            </ProtectedRoute>
-            <ProtectedRoute neededPerm="notLogged" path="/forgot-password/success">
-              <ForgotPasswordSuccess userService={UserService}/>
-            </ProtectedRoute>
-            <ProtectedRoute neededPerm="notLogged" path="/forgot-password">
-              <ForgotPassword userService={UserService}/>
-            </ProtectedRoute>
-            <ProtectedRoute neededPerm="notLogged" path="/reset-password">
-              <ResetPassword userService={UserService}/>
-            </ProtectedRoute>
+              <ProtectedRoute neededPerm="notLogged" path="/login">
+                <Login userService={UserService}/>
+              </ProtectedRoute>
+              <ProtectedRoute neededPerm="notLogged" path="/forgot-password/success">
+                <ForgotPasswordSuccess userService={UserService}/>
+              </ProtectedRoute>
+              <ProtectedRoute neededPerm="notLogged" path="/forgot-password">
+                <ForgotPassword userService={UserService}/>
+              </ProtectedRoute>
+              <ProtectedRoute neededPerm="notLogged" path="/reset-password">
+                <ResetPassword userService={UserService}/>
+              </ProtectedRoute>
 
 
-            <ProtectedRoute neededPerm="editor" path="/articles/create">
-              <CreateArticle articleService={ArticleService}/>
-            </ProtectedRoute>
-            <ProtectedRoute neededPerm="editor" path="/articles/:slug/edit">
-              <EditArticle articleService={ArticleService}/>
-            </ProtectedRoute>
-            <Route path="/articles/:slug">
-              <Article articleService={ArticleService}/>
-            </Route>
+              <ProtectedRoute neededPerm="editor" path="/articles/create">
+                <CreateArticle articleService={ArticleService}/>
+              </ProtectedRoute>
+              <ProtectedRoute neededPerm="editor" path="/articles/:slug/edit">
+                <EditArticle articleService={ArticleService}/>
+              </ProtectedRoute>
+              <Route path="/articles/:slug">
+                <Article articleService={ArticleService}/>
+              </Route>
 
-            <Route path="/oznamy/upload">
-              <UploadNotice uploadService={UploadService}/>
-            </Route>
-            <Route path="/oznamy/archive">
-              <ArchiveNotice uploadService={UploadService}/>
-            </Route>
-            <Route path="/oznamy/:id">
-              <DetailNotice uploadService={UploadService}/>
-            </Route>
+              <Route path={`/oznamy/upload/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})`}>
+                <UploadNotice uploadService={UploadService}/>
+              </Route>
+              <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/archive`}>
+                <ArchiveNotice uploadService={UploadService}/>
+              </Route>
+              <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/:id`}>
+                <DetailNotice uploadService={UploadService}/>
+              </Route>
 
-            <Route path="/oznamy">
-              <Notice/>
-            </Route>
-
-
-            <Route path="/most/archive">
-              <ArchiveMost uploadService={UploadService}/>
-            </Route>
-            <ProtectedRoute path="/most/upload" neededPerm="editor">
-              <UploadMost uploadService={UploadService}/>
-            </ProtectedRoute>
-            <Route path="/most/:id">
-              <DetailMost uploadService={UploadService}/>
-            </Route>
-            <Route path="/most">
-              <Most/>
-            </Route>
-
-            <ProtectedRoute path="/announcement/create" neededPerm="editor">
-              <CreateAnnouncement announcementService={AnnouncementService}/>
-            </ProtectedRoute>
+              <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})`}>
+                <Notice/>
+              </Route>
 
 
-            <ProtectedRoute neededPerm="editor" path="/pages/:category/:slug/edit">
-              <EditPage pageService={PageService}/>
-            </ProtectedRoute>
-            <ProtectedRoute neededPerm="editor" path="/pages/:category/:id/create">
-              <CreateSubPage pageService={PageService}/>
-            </ProtectedRoute>
+              <Route path="/most/archive">
+                <ArchiveMost uploadService={UploadService}/>
+              </Route>
+              <ProtectedRoute path="/most/upload" neededPerm="editor">
+                <UploadMost uploadService={UploadService}/>
+              </ProtectedRoute>
+              <Route path="/most/:id">
+                <DetailMost uploadService={UploadService}/>
+              </Route>
+              <Route path="/most">
+                <Most/>
+              </Route>
 
-            <Route path="/pages/:category/:parent_slug/:slug">
-              <Page pageService={PageService}/>
-            </Route>
-            <Route path="/pages/:category/:parent_slug">
-              <Page pageService={PageService}/>
-            </Route>
+              <ProtectedRoute path="/announcement/create" neededPerm="editor">
+                <CreateAnnouncement announcementService={AnnouncementService}/>
+              </ProtectedRoute>
 
-            <ProtectedRoute neededPerm="editor" path="/gallery/:category/upload">
-              <Upload uploadService={UploadService}/>
-            </ProtectedRoute>
 
-            <ProtectedRoute neededPerm="editor" path="/gallery/create">
-              <CreateUploadCategory galleryService={GalleryService}/>
-            </ProtectedRoute>
+              <ProtectedRoute neededPerm="editor" path="/pages/:category/:slug/edit">
+                <EditPage pageService={PageService}/>
+              </ProtectedRoute>
+              <ProtectedRoute neededPerm="editor" path="/pages/:category/:id/create">
+                <CreateSubPage pageService={PageService}/>
+              </ProtectedRoute>
 
-            <Route path="/gallery/:category">
-              <CategoryUploads galleryService={GalleryService}/>
-            </Route>
+              <Route path="/pages/:category/:parent_slug/:slug">
+                <Page pageService={PageService}/>
+              </Route>
+              <Route path="/pages/:category/:parent_slug">
+                <Page pageService={PageService}/>
+              </Route>
 
-            <Route path="/gallery">
-              <CategoryList galleryService={GalleryService}/>
-            </Route>
+              <ProtectedRoute neededPerm="editor" path="/gallery/:category/upload">
+                <Upload uploadService={UploadService}/>
+              </ProtectedRoute>
 
-            <Route path="/contact">
-              <Contact/>
-            </Route>
+              <ProtectedRoute neededPerm="editor" path="/gallery/create">
+                <CreateUploadCategory galleryService={GalleryService}/>
+              </ProtectedRoute>
 
-            <Route path="/links">
-              <Links/>
-            </Route>
+              <Route path="/gallery/:category">
+                <CategoryUploads galleryService={GalleryService}/>
+              </Route>
 
-            <Route path="*">
-              <NotFound/>
-            </Route>
-          </Switch>
+              <Route path="/gallery">
+                <CategoryList galleryService={GalleryService}/>
+              </Route>
 
+              <Route path="/contact">
+                <Contact/>
+              </Route>
+
+              <Route path="/links">
+                <Links/>
+              </Route>
+
+              <Route path="*">
+                <NotFound/>
+              </Route>
+            </Switch>
+          </Suspense>
         </div>
         <div className="text-center">
           <p className="text-gray-800 py-8">

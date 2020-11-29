@@ -14,7 +14,7 @@ function EditArticle({articleService}) {
 
     const handleCreate = values => {
         articleService.edit({...values, id: article.id}).then(() => {
-            history.push(`/articles`)
+            history.push(`/`)
         })
     };
 

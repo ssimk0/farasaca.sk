@@ -3,6 +3,8 @@ import axios from 'axios';
 export const GALLERY_TYPE = 'gallery';
 export const PAGES_TYPE = 'pages';
 export const NOTICE_TYPE = 'weekly';
+export const MASS_TYPE = 'omse';
+export const READINGS_TYPE = 'citania';
 export const MOST_TYPE = 'most';
 
 export default {

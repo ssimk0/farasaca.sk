@@ -4,8 +4,9 @@ import i18n from "../utils/i18n";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
 import CreateButton from "../components/Create/CreateButton";
+import ArticlesHome from "../components/Articles/ArticlesHome";
 
-function Home() {
+function Home({articleService}) {
   const {dispatch, state} = useAppContext();
 
   useEffect(() => {
@@ -42,11 +43,23 @@ function Home() {
       </div>
       <div className="py-4">
         <div className="container mx-auto">
-          <h3>Liturgický Kalendár</h3>
+          <h3>Aktuality</h3>
           <hr className="py-4"/>
-          <a href="https://lc.kbs.sk">
-            <img src="https://lc.kbs.sk/?img=1&colors=fff;3B82F6;#000;#000" alt="lit-calendar"/>
-          </a>
+          <div className="grid grid-cols-1 md:grid-cols-4">
+            <div className="py-4">
+              <a href="https://lc.kbs.sk">
+                <img src="https://lc.kbs.sk/?img=2&colors=fff;3B82F6;#000;#000" alt="lit-calendar" className="mx-auto md:mx-0"/>
+              </a>
+            </div>
+            <div className="md:col-span-3">
+              <ArticlesHome articleService={articleService}/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-4">
+        <div className="container mx-auto">
+
         </div>
       </div>
       <div className="py-4">

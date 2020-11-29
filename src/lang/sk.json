@@ -34,9 +34,12 @@
         },
         "notice": {
             "menuName": "Oznamy",
+            "massMenuName": "Rozpis sv. Omši",
+            "readingsMenuName": "Rozpis čitaní",
             "actual": "Aktuálne oznamy",
             "upload": "Nahrať",
-            "archive": "Archiv"
+            "archive": "Archiv",
+            "detail": "Oznamy"
         },
         "most": {
             "menuName": "Most",
@@ -49,7 +52,7 @@
         "created": "Vytvorené",
         "top": "Najčitanejšie",
         "link": {
-            "create": "Vytvoriť",
+            "create": "Vytvoriť článok",
             "edit": "Upraviť"
         }
     },
@@ -85,8 +88,10 @@
         "detail": "Archiv",
         "link": {
             "upload": "Nahrať Oznamy",
+            "uploadMass": "Nahrať rozpis omší",
+            "uploadReadings": "Nahrať rozpis čitaní",
             "back": "< Naspäť do archívu",
-            "archive": "Archív Oznámov"
+            "archive": "Archív oznamov"
         }
     },
     "actions": {
@@ -111,6 +116,7 @@
             "Short": "Skratený tvar",
             "Content": "Článok",
             "Published": "Zverejnený",
+            "Image": "Obrázok (Nepovinné)",
             "Submit": "Uložiť"
         },
         "pages": {
@@ -157,5 +163,9 @@
         "login": "heslo alebo email je zle skuste to znova",
         "unknown": "nastala chyba skuste to znova",
         "notFound": "Stránka sa nenašla"
+    },
+    "pdf-reader": {
+        "loading": "Načitavanie ... ",
+        "error": "Subor sa nepodarilo sa načitať"
     }
 }

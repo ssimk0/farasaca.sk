@@ -1,21 +1,21 @@
 import UploadForm from "../../components/Upload/UploadForm";
 import React, {useEffect} from "react";
 import i18n from "../../utils/i18n";
-import {NOTICE_TYPE} from "../../api/upload";
-import {useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import {SET_PAGE_TITLE, useAppContext} from "../../context/app";
 
 function Upload({uploadService}) {
   const history = useHistory();
   const {dispatch} = useAppContext();
+  const {type} = useParams();
 
   useEffect(() => {
     dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.notice.upload")});
   });
 
   function handleSubmit({file, description}) {
-    uploadService.uploadOne(file[0], NOTICE_TYPE, description).then(() => {
-      history.push("/oznamy")
+    uploadService.uploadOne(file[0], type, description).then(() => {
+      history.push("/oznamy/" + type)
     })
   }
 

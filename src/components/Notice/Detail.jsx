@@ -1,6 +1,7 @@
 import {Document, Page, pdfjs} from "react-pdf";
 import React, {useState} from "react";
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import i18n from "../../utils/i18n";
 
 
 function Detail({file}) {
@@ -13,6 +14,8 @@ function Detail({file}) {
   return (
     <Document
       file={file}
+      error={i18n.t("pdf-reader.error")}
+      loading={i18n.t("pdf-reader.loading")}
       onLoadSuccess={onDocumentLoadSuccess}
     >
       {
