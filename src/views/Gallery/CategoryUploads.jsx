@@ -33,7 +33,8 @@ function CategoryUploads({galleryService}) {
                 items={uploads.upload.map((upload) => ({...upload, original: upload.file}))}
                 infinite={false}
                 lazyLoad={true}
-                showFullscreenButton={false}
+                slideDuration={300}
+                showFullscreenButton={true}
                 showPlayButton={false}
                 ref={gallery}
             />

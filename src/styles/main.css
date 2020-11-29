@@ -96,3 +96,7 @@
         height: auto;
     }
 }
+
+.image-gallery-slides {
+    min-height: 250px;
+}
