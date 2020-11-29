@@ -34,7 +34,7 @@
         },
         "notice": {
             "menuName": "Oznamy",
-            "massMenuName": "Rozpis sv. Omši",
+            "massMenuName": "Rozpis bohoslužieb",
             "readingsMenuName": "Rozpis čitaní",
             "actual": "Aktuálne oznamy",
             "upload": "Nahrať",
@@ -88,7 +88,7 @@
         "detail": "Archiv",
         "link": {
             "upload": "Nahrať Oznamy",
-            "uploadMass": "Nahrať rozpis omší",
+            "uploadMass": "Nahrať rozpis bohoslužieb",
             "uploadReadings": "Nahrať rozpis čitaní",
             "back": "< Naspäť do archívu",
             "archive": "Archív oznamov"
