@@ -61,7 +61,7 @@ input:not([type='checkbox']):focus {
 }
 
 .btn:hover {
-    @apply bg-blue-700
+    @apply bg-blue-700 text-white
 }
 
 .btn:focus {
