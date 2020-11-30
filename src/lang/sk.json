@@ -34,12 +34,17 @@
         },
         "notice": {
             "menuName": "Oznamy",
-            "massMenuName": "Rozpis bohoslužieb",
-            "readingsMenuName": "Rozpis čitaní",
-            "actual": "Aktuálne oznamy",
+            "weeklyMenuName": "Týždene oznamy",
+            "omseMenuName": "Rozpis bohoslužieb",
+            "citaniaMenuName": "Rozpis čitaní",
+            "weeklyActual": "Aktuálne oznamy",
+            "omseActual": "Aktuálny rozpis bohoslužieb",
+            "citaniaActual": "Aktuálny rozpis čitaní",
             "upload": "Nahrať",
             "archive": "Archiv",
-            "detail": "Oznamy"
+            "weeklyDetail": "Oznamy",
+            "omseDetail": "Rozpis Bohoslužieb",
+            "citaniaDetail": "Rozpis Čitaní"
         },
         "most": {
             "menuName": "Most",
@@ -91,7 +96,7 @@
             "uploadMass": "Nahrať rozpis bohoslužieb",
             "uploadReadings": "Nahrať rozpis čitaní",
             "back": "< Naspäť do archívu",
-            "archive": "Archív oznamov"
+            "archive": "Archív predošlích"
         }
     },
     "actions": {

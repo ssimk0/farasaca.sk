@@ -136,9 +136,9 @@ function App({pageService, userService, articleService}) {
                     <Link to="/oznamy/weekly"
                           className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.menuName")}</Link>
                     <Link to="/oznamy/omse"
-                          className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.massMenuName")}</Link>
+                          className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.omseMenuName")}</Link>
                     <Link to="/oznamy/citania"
-                          className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.readingsMenuName")}</Link>
+                          className="block px-4 py-2 hover:text-blue-800 hover:text-white">{i18n.t("pages.notice.citaniaMenuName")}</Link>
                   </div>
                 </li>
                 <li className="lg:mr-4 block lg:hidden">

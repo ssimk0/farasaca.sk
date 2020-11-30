@@ -10,12 +10,12 @@ function Notice() {
   const {type} = useParams();
 
   useEffect(() => {
-    dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.notice.menuName")});
+    dispatch({type: SET_PAGE_TITLE, value: i18n.t(`pages.notice.${type}MenuName`)});
   });
 
   return (
     <div className="p-4 container mx-auto">
-      <span className="form-title inline-block">{i18n.t("pages.notice.actual")}</span>
+      <span className="form-title inline-block">{i18n.t(`pages.notice.${type}Actual`)}</span>
       <Detail file={`${BASE_API_URL}/api/v1/uploads/menu/${type}/latest`}/>
 
       <Link to={`/oznamy/${type}/archive`}>
