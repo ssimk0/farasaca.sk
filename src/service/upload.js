@@ -20,6 +20,9 @@ const UploadService = {
   },
   getUpload({type, category, id}) {
     return upload.getUpload({type, category, id})
+  },
+  edit({type, category, id, description}) {
+    return upload.edit({type, id, category, description})
   }
 }
 

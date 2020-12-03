@@ -45,5 +45,8 @@ export default {
   },
   getUpload({category, type, id}) {
     return axios.get(`/api/v1/uploads/${type}/${category}/${id}`).then((r) => r.data)
+  },
+  edit({category, type, id, description}) {
+    return axios.put(`/api/v1/uploads/${type}/${category}/${id}`, {description}).then((r) => r.data)
   }
 };

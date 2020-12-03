@@ -30,6 +30,7 @@ import AnnouncementService from "./service/announcement";
 import UploadService from "./service/upload";
 import Links from "./views/Links";
 import {MASS_TYPE, NOTICE_TYPE, READINGS_TYPE} from "./api/upload";
+import EditNotice from "./views/Notice/Edit";
 
 const Most = lazy(() => import('./views/Most/Most'));
 const ArchiveMost = lazy(() => import('./views/Most/Archiv'));
@@ -212,6 +213,9 @@ function App({pageService, userService, articleService}) {
               </Route>
               <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/archive`}>
                 <ArchiveNotice uploadService={UploadService}/>
+              </Route>
+              <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/:id/edit`}>
+                <EditNotice uploadService={UploadService}/>
               </Route>
               <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/:id`}>
                 <DetailNotice uploadService={UploadService}/>

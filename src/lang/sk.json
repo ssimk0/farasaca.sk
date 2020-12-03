@@ -93,6 +93,7 @@
         "detail": "Archiv",
         "link": {
             "upload": "Nahrať Oznamy",
+            "edit": "Upraviť",
             "uploadMass": "Nahrať rozpis bohoslužieb",
             "uploadReadings": "Nahrať rozpis čitaní",
             "back": "< Naspäť do archívu",
