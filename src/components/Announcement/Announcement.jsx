@@ -12,7 +12,7 @@ function Announcement({announcement}) {
     }
   }, [announcement, dispatch])
 
-  return announcement ? (
+  return announcement && announcement.message ? (
     <div className="bg-indigo-500">
       <div className="max-w-screen-xl mx-auto py-4 px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between flex-wrap">
