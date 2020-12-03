@@ -21,7 +21,7 @@ function Pagination({page, total_pages}) {
                 {disabledPrev ? <div/> :
                     (<button
                         onClick={() => changePage(-1)}
-                        className="prev font-semibold text-gray-500 hover:text-gray-600 transition ease-in-out duration-150"
+                        className="prev font-semibold focus:outline-none text-gray-500 hover:text-gray-600 transition ease-in-out duration-150"
                         aria-label={i18n.t("pagination.Prev")}>
                         ← {i18n.t("pagination.Prev")}
                     </button>)
@@ -29,7 +29,7 @@ function Pagination({page, total_pages}) {
                 {disabledNext ? <div/> :
                     (<button
                         onClick={() => changePage(1)}
-                        className="next font-semibold  text-gray-500 hover:text-gray-600 transition ease-in-out duration-150"
+                        className="next font-semibold focus:outline-none text-gray-500 hover:text-gray-600 transition ease-in-out duration-150"
                         aria-label={i18n.t("pagination.Next")}>
                         {i18n.t("pagination.Next")} →
                     </button>)
