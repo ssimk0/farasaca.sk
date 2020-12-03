@@ -102,7 +102,7 @@ function App({pageService, userService, articleService}) {
     dropDownClass += ' hidden';
   }
 
-  const topPadding = state.announcement ? 'pt-40' : 'pt-24';
+  const topPadding = state.announcement && state.announcement.message ? 'pt-40' : 'pt-24';
   return !loading ? (
     <Router>
       <div>
