@@ -14,7 +14,7 @@ function DetailNotice({uploadService}) {
   const {type, id} = useParams();
 
   useEffect(() => {
-    dispatch({type: SET_PAGE_TITLE, value: i18n.t(`pages.notice.${type}detail`)});
+    dispatch({type: SET_PAGE_TITLE, value: i18n.t(`pages.notice.${type}Detail`)});
 
     uploadService.getUpload({
       type: "menu",
