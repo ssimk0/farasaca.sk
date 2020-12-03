@@ -18,7 +18,11 @@ function EditNotice({uploadService}) {
     setError(null)
 
     return uploadService.edit({...values, id: upload.id, type: "menu", category: type,}).then(() => {
-      history.push(`/`)
+      if (type === 'most') {
+        history.push(`/${type}/${id}`)
+      } else {
+        history.push(`/oznamy/${type}/${id}`)
+      }
     }, (err) => {
       setError(i18n.t('errors.unknown'))
     })

@@ -232,6 +232,9 @@ function App({pageService, userService, articleService}) {
               <ProtectedRoute path="/most/upload" neededPerm="editor">
                 <UploadMost uploadService={UploadService}/>
               </ProtectedRoute>
+              <Route path="/:type(most)/:id/edit">
+                <EditNotice uploadService={UploadService}/>
+              </Route>
               <Route path="/most/:id">
                 <DetailMost uploadService={UploadService}/>
               </Route>

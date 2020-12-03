@@ -12,11 +12,11 @@ export default {
     return axios.get(`/api/v1/uploads/${type}`).then((r) => r.data);
   },
   listUploads(args) {
-    const {type, category, s, p} = args;
+    const {type, category, s, page} = args;
     return axios.get(`/api/v1/uploads/${type}/${category}`, {
       params: {
         s,
-        p
+        p: page,
       }
     }).then(r => r.data);
   },
