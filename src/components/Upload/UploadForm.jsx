@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import i18n from "../../utils/i18n";
 import {useForm} from "react-hook-form";
 
-function UploadForm({onSubmit, upload}) {
+function UploadForm({onSubmit, upload={}}) {
   const {handleSubmit, register, errors} = useForm();
   const [loading, setLoading] = useState(false);
 
@@ -25,7 +25,7 @@ function UploadForm({onSubmit, upload}) {
             {errors.description && errors.description.message}
         </span>
       </div>
-      {upload ? null : (<div className="form-group">
+      {upload.file ? null : (<div className="form-group">
         <label>{i18n.t("form.notice.File")}</label>
         <div>
           <input type="file" name="file"

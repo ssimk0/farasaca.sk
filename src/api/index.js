@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const BASE_API_URL = 'https://api-fara.sebastiansimko.sk';
+// export const BASE_API_URL = 'http://localhost:8080';
 
 export default function setup(t) {
   axios.defaults.baseURL = BASE_API_URL;
