@@ -6,7 +6,7 @@ import {Link, useParams} from "react-router-dom";
 import Detail from '../../components/Notice/Detail';
 
 function Notice() {
-  const {dispatch} = useAppContext();
+  const {state, dispatch} = useAppContext();
   const {type} = useParams();
 
   useEffect(() => {
@@ -15,6 +15,13 @@ function Notice() {
 
   return (
     <div className="p-4 container mx-auto">
+      {state.user && (state.user.can_edit || state.user.is_admin) ?
+        (<div className="text-right block py-4">
+          <Link className="btn" to={`/oznamy/upload/${type}`}>
+            {i18n.t("pages.notice.upload")}
+          </Link>
+        </div>) : null
+      }
       <span className="form-title inline-block">{i18n.t(`pages.notice.${type}Actual`)}</span>
       <Detail file={`${BASE_API_URL}/api/v1/uploads/menu/${type}/latest`}/>
 
