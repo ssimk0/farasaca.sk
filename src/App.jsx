@@ -119,7 +119,7 @@ function App({pageService, userService, articleService}) {
               </button>
             </div>
             <div className="flex lg:ml-4 px-6 items-center mr-4">
-              <span className="text-blue-800 text-shadow text-2xl font-bold ml-4">Farnosť Šaca</span>
+              <a className="text-blue-800 text-shadow text-2xl font-bold ml-4" href="/">Farnosť Šaca</a>
             </div>
             <div className={menuClass}>
               <ul className="text-sm lg:flex-grow text-center lg:text-right ">
