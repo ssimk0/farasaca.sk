@@ -148,11 +148,11 @@ function App({pageService, userService, articleService}) {
                 </li>
                 <li className="lg:mr-4 block lg:hidden">
                   <NavLink to="/oznamy/omse"
-                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.massMenuName")}</NavLink>
+                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.omseMenuName")}</NavLink>
                 </li>
                 <li className="lg:mr-4 block lg:hidden">
                   <NavLink to="/oznamy/citania"
-                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.readingsMenuName")}</NavLink>
+                           className="lg:mt-0 hover:text-blue-800">{i18n.t("pages.notice.citaniaMenuName")}</NavLink>
                 </li>
                 <li className="lg:mr-4 block lg:inline-block">
                   <NavLink to="/most"
