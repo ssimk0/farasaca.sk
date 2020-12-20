@@ -79,16 +79,16 @@ function Home({articleService}) {
         <div className="container mx-auto px-2">
           <h4>Podpora</h4>
           <hr className="py-4"/>
-          <p>
+          <div>
             Ak nás chcete podporiť možete tak urobiť priamo na účet farnosti.
             <p className="pt-1">
             IBAN účtu farnosti je: <strong className="text-bold">SK95 0900 0000 0004 4944 5368</strong>,
-              </p>
+            </p>
             <p className="pb-1">
             IBAN filialky Mala Ida je: <strong className="text-bold">SK05 0900 0000 0006 6030 9177.</strong>
               </p>
             PBZ za štedrosť.
-          </p>
+          </div>
         </div>
       </div>
       <CreateButton user={state.user}/>
