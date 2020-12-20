@@ -5,6 +5,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
 import CreateButton from "../components/Create/CreateButton";
 import ArticlesHome from "../components/Articles/ArticlesHome";
+import {Link} from "react-router-dom";
+import {NOTICE_TYPE} from "../api/upload";
 
 function Home({articleService}) {
   const {dispatch, state} = useAppContext();
@@ -35,14 +37,14 @@ function Home({articleService}) {
       </Carousel>
       <div className="grid md:grid-cols-2 grid-cols-1">
         <div className="oznamy text-center">
-          <a className="text-4xl font-bold" href="/oznamy">Aktualne oznamy</a>
+          <Link className="text-4xl font-bold" to={`/oznamy/${NOTICE_TYPE}`}>Aktualne oznamy</Link>
         </div>
         <div className="most text-center">
-          <a className="text-4xl font-bold" href="/most">Aktualne čislo mostu</a>
+          <Link className="text-4xl font-bold" to="/most">Aktualne čislo mostu</Link>
         </div>
       </div>
       <div className="py-4">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-2">
           <h3>Aktuality</h3>
           <hr className="py-4"/>
           <div className="grid grid-cols-1 md:grid-cols-4">
@@ -63,7 +65,7 @@ function Home({articleService}) {
         </div>
       </div>
       <div className="py-4">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-2">
           <h4>Online prenos</h4>
           <hr className="py-4"/>
           <div className="md:w-1/2 mx-auto">
@@ -74,7 +76,7 @@ function Home({articleService}) {
         </div>
       </div>
       <div className="py-4">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-2">
           <h4>Podpora</h4>
           <hr className="py-4"/>
           <p>
