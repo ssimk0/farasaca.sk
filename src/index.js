@@ -13,7 +13,7 @@ import 'styles/main.css';
 import UserService from "./service/user";
 import dayjs from "dayjs";
 import ArticleService from "./service/article";
-
+import ReactGA from 'react-ga';
 
 dayjs.locale('sk')
 
@@ -25,6 +25,9 @@ if (process.env === "production") {
         ],
         tracesSampleRate: 1.0,
     });
+
+    ReactGA.initialize('UA-105344188-4');
+    ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
 setupApi()
