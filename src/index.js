@@ -17,7 +17,7 @@ import ReactGA from 'react-ga';
 
 dayjs.locale('sk')
 
-if (process.env === "production") {
+if (process.env !== "test" && process.env !== "development") {
     Sentry.init({
         dsn: "https://c3752759514d4b57b580d282b49fc338@o254716.ingest.sentry.io/5420367",
         integrations: [
