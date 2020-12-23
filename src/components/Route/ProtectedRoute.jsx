@@ -6,7 +6,7 @@ export function isAllowed(permType, user) {
     if (permType === 'admin') {
         return user && user.is_admin
     } else if (permType === 'editor') {
-        return user && user.can_edit
+        return user && (user.can_edit || user.is_admin)
     } else if (permType === 'logged') {
         return user !== null
     } else if (permType === 'notLogged') {

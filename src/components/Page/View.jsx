@@ -8,7 +8,7 @@ function PageView({page, parent_page, user, parent_slug}) {
     let createLink
     let sideMenu
 
-    if (user && (user.can_edit || user.is_admin)) {
+    if (user && (user.is_admin)) {
         editLink = (
             <Link to={`/pages/${page.page_category.slug}/${page.slug}/edit`}
                   className="btn">{i18n.t('page.link.edit')}</Link>

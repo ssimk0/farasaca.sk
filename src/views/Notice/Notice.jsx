@@ -15,7 +15,7 @@ function Notice() {
 
   return (
     <div className="p-4 container mx-auto">
-      {state.user && (state.user.can_edit || state.user.is_admin) ?
+      {state.user && (state.user.is_admin) ?
         (<div className="text-right block py-4">
           <Link className="btn" to={`/oznamy/upload/${type}`}>
             {i18n.t("pages.notice.upload")}

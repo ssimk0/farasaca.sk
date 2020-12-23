@@ -208,13 +208,13 @@ function App({pageService, userService, articleService}) {
                 <Article articleService={articleService}/>
               </Route>
 
-              <Route path={`/oznamy/upload/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})`}>
+              <ProtectedRoute neededPerm="admin" path={`/oznamy/upload/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})`}>
                 <UploadNotice uploadService={UploadService}/>
-              </Route>
+              </ProtectedRoute>
               <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/archive`}>
                 <ArchiveNotice uploadService={UploadService}/>
               </Route>
-              <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/:id/edit`}>
+              <Route neededPerm="admin" path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/:id/edit`}>
                 <EditNotice uploadService={UploadService}/>
               </Route>
               <Route path={`/oznamy/:type(${NOTICE_TYPE}|${READINGS_TYPE}|${MASS_TYPE})/:id`}>
@@ -229,7 +229,7 @@ function App({pageService, userService, articleService}) {
               <Route path="/most/archive">
                 <ArchiveMost uploadService={UploadService}/>
               </Route>
-              <ProtectedRoute path="/most/upload" neededPerm="editor">
+              <ProtectedRoute path="/most/upload" neededPerm="admin">
                 <UploadMost uploadService={UploadService}/>
               </ProtectedRoute>
               <Route path="/:type(most)/:id/edit">
@@ -247,10 +247,10 @@ function App({pageService, userService, articleService}) {
               </ProtectedRoute>
 
 
-              <ProtectedRoute neededPerm="editor" path="/pages/:category/:slug/edit">
+              <ProtectedRoute neededPerm="admin" path="/pages/:category/:slug/edit">
                 <EditPage pageService={PageService}/>
               </ProtectedRoute>
-              <ProtectedRoute neededPerm="editor" path="/pages/:category/:id/create">
+              <ProtectedRoute neededPerm="admin" path="/pages/:category/:id/create">
                 <CreateSubPage pageService={PageService}/>
               </ProtectedRoute>
 

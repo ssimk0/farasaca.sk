@@ -15,7 +15,7 @@ function Most() {
 
   return (
     <div className="container mx-auto py-4">
-      {state.user && (state.user.can_edit || state.user.is_admin) ?
+      {state.user && (state.user.is_admin) ?
         (<div className="text-right block py-4">
           <Link className="btn" to={`/most/upload`}>
             {i18n.t("pages.notice.upload")}
