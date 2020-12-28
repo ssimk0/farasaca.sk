@@ -16,7 +16,6 @@ function ArchiveMost({uploadService}) {
 
   useEffect(() => {
     dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.most.archive")});
-    console.log(page)
     uploadService.getUploads({
       type: "menu",
       category: MOST_TYPE,

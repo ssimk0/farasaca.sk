@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const BASE_API_URL = 'https://api.farasaca.sk';
-// export const BASE_API_URL = 'http://localhost:8080';
+export const BASE_API_URL = 'https://apis.farasaca.sk';
+// export const BASE_API_URL = 'http://localhost:8000';
 
 export default function setup(t) {
   axios.defaults.baseURL = BASE_API_URL;
