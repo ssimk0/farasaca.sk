@@ -11,9 +11,9 @@ export default function setup(t) {
     },
     (error) => {
       if (error.response && (error.response.status === 401) && error.request.responseURL.indexOf('api/auth/login') === -1) {
-        document.location = "/logout";
         localStorage.setItem("token", "");
 
+        document.location = "/?error=sessionExpired";
         return Promise.resolve({});
       }
 
