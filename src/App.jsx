@@ -31,6 +31,8 @@ import UploadService from "./service/upload";
 import Links from "./views/Links";
 import {MASS_TYPE, NOTICE_TYPE, READINGS_TYPE} from "./api/upload";
 import EditNotice from "./views/Notice/Edit";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Most = lazy(() => import('./views/Most/Most'));
 const ArchiveMost = lazy(() => import('./views/Most/Archiv'));
@@ -297,6 +299,17 @@ function App({pageService, userService, articleService}) {
           </p>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+      />
     </Router>
   ) : <Loader/>;
 }

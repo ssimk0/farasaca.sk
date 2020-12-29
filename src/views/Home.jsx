@@ -1,19 +1,26 @@
 import React, {useEffect} from 'react';
 import {SET_PAGE_TITLE, useAppContext} from '../context/app';
+import { toast } from 'react-toastify';
 import i18n from "../utils/i18n";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
 import CreateButton from "../components/Create/CreateButton";
 import ArticlesHome from "../components/Articles/ArticlesHome";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {NOTICE_TYPE} from "../api/upload";
 
 function Home({articleService}) {
   const {dispatch, state} = useAppContext();
+  const query = new URLSearchParams(useLocation().search);
+  const err = query.get("error");
 
   useEffect(() => {
     dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.home.menuName")});
-  });
+      if (["sessionExpired"].indexOf(err) > -1)
+    {
+      toast.error(i18n.t(`errors.${err}`))
+    }
+  }, [dispatch, err]);
 
   return (
     <div className="home">

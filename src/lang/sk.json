@@ -168,6 +168,7 @@
     "errors": {
         "login": "heslo alebo email je zle skuste to znova",
         "unknown": "nastala chyba skuste to znova",
+        "sessionExpired": "Vaše prihlásenie vypršalo, prihláste sa znova.",
         "notFound": "Stránka sa nenašla"
     },
     "pdf-reader": {
