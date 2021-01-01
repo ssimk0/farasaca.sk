@@ -14,7 +14,7 @@ function DetailView({file}) {
   }
 
   return (
-    <div className="container">
+    <div className="py-4 container">
       <Document
         file={file}
         error={i18n.t("pdf-reader.error")}
@@ -23,7 +23,7 @@ function DetailView({file}) {
         onClick={() => setPageNum(pageNum + 1)}
       >
         <Page
-         pageNumber={pageNum}
+          pageNumber={pageNum}
           scale={2.0}
         />
       </Document>
