@@ -100,3 +100,13 @@
 .image-gallery-slides {
     min-height: 250px;
 }
+
+.react-pdf__Page__canvas {
+    height: auto !important;
+    max-width: 100% !important;
+}
+
+.react-pdf__Page__textContent {
+    max-width: 100% !important;
+    overflow: hidden;
+}

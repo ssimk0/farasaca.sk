@@ -9,22 +9,21 @@ function DetailView({file}) {
   const [numPages, setNumPages] = useState(null);
   const [pageNum, setPageNum] = useState(1);
 
-  console.log(file)
-
   function onDocumentLoadSuccess({numPages}) {
     setNumPages(numPages);
   }
 
   return (
-    <div className="container py-4">
+    <div className="container">
       <Document
         file={file}
         error={i18n.t("pdf-reader.error")}
         loading={i18n.t("pdf-reader.loading")}
         onLoadSuccess={onDocumentLoadSuccess}
+        onClick={() => setPageNum(pageNum + 1)}
       >
         <Page
-          pageNumber={pageNum}
+         pageNumber={pageNum}
           scale={2.0}
         />
       </Document>
