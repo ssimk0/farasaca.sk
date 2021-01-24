@@ -19,11 +19,11 @@ dayjs.locale('sk')
 
 if (process.env !== "test" && process.env !== "development") {
     Sentry.init({
-        dsn: "https://c3752759514d4b57b580d282b49fc338@o254716.ingest.sentry.io/5420367",
+        dsn: "https://c3752759514d4b57b580d282b49fc338@o254716.ingest.sentry.io/5605163",
         integrations: [
             new Integrations.BrowserTracing(),
         ],
-        tracesSampleRate: 1.0,
+        tracesSampleRate: 0.0,
     });
 
     ReactGA.initialize('UA-105344188-4');
