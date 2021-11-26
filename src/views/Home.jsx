@@ -76,7 +76,7 @@ function Home({articleService}) {
           <h4>Online prenos</h4>
           <hr className="py-4"/>
           <div className="md:w-1/2 mx-auto">
-          <iframe width="100%" height="300" src="https://www.youtube.com/embed/lSB57vaEOnc" frameBorder="0"
+          <iframe width="100%" height="300" src="https://www.youtube.com/embed/GR7A-3AUpwE" frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   title="Online Prenos" allowFullScreen className="mx-auto" />
           </div>
