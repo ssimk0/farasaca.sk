@@ -15,6 +15,7 @@ function ArticleHome({ articleService }) {
   }, [articleService, page])
   let articleList = [];
 
+  console.log(articles)
   if (articles && articles.data && articles.data.length) {
     articleList = articles.data.map((article) => {
       return (
