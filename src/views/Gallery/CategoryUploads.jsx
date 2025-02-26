@@ -15,6 +15,7 @@ function CategoryUploads({galleryService}) {
         dispatch({type: SET_PAGE_TITLE, value: i18n.t("pages.gallery.menuName")});
 
         galleryService.getCategoryUploads(category).then((data) => {
+          console.log(data)
             setUploads(data);
         })
     }, [galleryService, dispatch, category])
@@ -30,7 +31,7 @@ function CategoryUploads({galleryService}) {
                 </div>) : null
             }
             <ImageGallery
-                items={uploads?.upload?.map((upload) => ({...upload, original: upload.file})) || []}
+                items={uploads?.data?.map((upload) => ({...upload, original: upload.file})) || []}
                 infinite={false}
                 lazyLoad={true}
                 slideDuration={300}

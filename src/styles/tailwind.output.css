@@ -20,7 +20,6 @@ Use a more readable tab size (opinionated).
 */
 
 :root {
-  -moz-tab-size: 4;
   tab-size: 4;
 }
 
@@ -411,15 +410,7 @@ textarea {
   resize: vertical;
 }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #9ca3af;
-}
-
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #9ca3af;
-}
-
-input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   color: #9ca3af;
 }
 
@@ -1128,9 +1119,7 @@ video {
 }
 
 input:not([type='checkbox']) {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   --tw-border-opacity: 1;
