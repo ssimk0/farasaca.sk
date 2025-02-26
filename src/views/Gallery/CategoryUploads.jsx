@@ -30,7 +30,7 @@ function CategoryUploads({galleryService}) {
                 </div>) : null
             }
             <ImageGallery
-                items={uploads.upload.map((upload) => ({...upload, original: upload.file}))}
+                items={uploads?.upload?.map((upload) => ({...upload, original: upload.file}))}
                 infinite={false}
                 lazyLoad={true}
                 slideDuration={300}
