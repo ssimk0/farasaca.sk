@@ -9,7 +9,7 @@ import ArticlesHome from "../components/Articles/ArticlesHome";
 import { Link, useLocation } from "react-router-dom";
 import { NOTICE_TYPE } from "../api/upload";
 
-function Hoarticlesme({ articleService }) {
+function Home({ articleService }) {
   const { dispatch, state } = useAppContext();
   const query = new URLSearchParams(useLocation().search);
   const err = query.get("error");
