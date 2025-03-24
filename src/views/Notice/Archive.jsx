@@ -35,7 +35,7 @@ function ArchiveNotice({uploadService}) {
       <span className="form-title">{i18n.t("notice.archive")}</span>
       <div className="pt-4">
         <ul>
-          {uploads.upload && uploads.upload.map((u) => (
+          {uploads.data && uploads.data.map((u) => (
             <li key={'most-' + u.id}>
               <Link to={`/oznamy/${type}/${u.id}`}>{u.description}</Link>
             </li>
