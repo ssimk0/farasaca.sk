@@ -28,16 +28,24 @@ function ArchiveNotice({uploadService}) {
     })
   }, [dispatch, page, type, uploadService])
 
+  const calculateWeeksFromNow = (createdAt) => {
+    const createdDate = new Date(createdAt);
+    const now = new Date();
+    const diffInMilliseconds = now.getTime() - createdDate.getTime();
+    const diffInWeeks = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24 * 7)); // Convert milliseconds to weeks
+    return diffInWeeks;
+  };
 
+  console.log(uploads)
   return uploads && (
     <div className="container mx-auto py-4">
       <Error error={error}/>
-      <span className="form-title">{i18n.t("notice.archive")}</span>
+      <span className="form-title">{i18n.t(`notice.${type}.archive`)}</span>
       <div className="pt-4">
         <ul>
           {uploads.data && uploads.data.map((u) => (
             <li key={'most-' + u.id}>
-              <Link to={`/oznamy/${type}/${u.id}`}>{u.description}</Link>
+              <Link to={`/oznamy/${type}/${u.id}`}>{u.description} (pred {calculateWeeksFromNow(u.created_at)} týždňami)</Link>
             </li>
           ))}
         </ul>

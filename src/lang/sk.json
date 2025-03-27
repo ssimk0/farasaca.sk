@@ -89,7 +89,15 @@
         }
     },
     "notice": {
-        "archive": "Archív oznamov",
+        "citania": {
+            "archive": "Archív čítaní"
+        },
+        "omse": {
+            "archive": "Archív bohoslužieb"
+        },
+        "weekly": {
+            "archive": "Archív oznamov"
+        },
         "detail": "Archiv",
         "link": {
             "upload": "Nahrať Oznamy",
