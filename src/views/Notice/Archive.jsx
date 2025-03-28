@@ -36,7 +36,6 @@ function ArchiveNotice({uploadService}) {
     return diffInWeeks;
   };
 
-  console.log(uploads)
   return uploads && (
     <div className="container mx-auto py-4">
       <Error error={error}/>
@@ -45,7 +44,7 @@ function ArchiveNotice({uploadService}) {
         <ul>
           {uploads.data && uploads.data.map((u) => (
             <li key={'most-' + u.id}>
-              <Link to={`/oznamy/${type}/${u.id}`}>{u.description} (pred {calculateWeeksFromNow(u.created_at)} týždňami)</Link>
+              <Link to={`/oznamy/${type}/${u.id}`}>{u.description} {calculateWeeksFromNow(u.created_at) > 0 ? `(pred ${calculateWeeksFromNow(u.created_at)} týždňami)` : null }</Link>
             </li>
           ))}
         </ul>
