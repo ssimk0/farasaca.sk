@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default {
   create(args) {
-    return axios.post(`/api/v1/articles/news/`, args).then((reponse) => reponse.data)
+    return axios.post(`/api/v1/articles/news`, args).then((reponse) => reponse.data)
   },
   edit(args) {
     return axios.put(`/api/v1/articles/news/${args.id}`, args).then((reponse) => reponse.data)
